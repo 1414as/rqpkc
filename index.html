@@ -261,6 +261,24 @@
   .badge-warning { background: #fef3c7; color: #92400e; }
   .badge-empty { background: #e2e8f0; color: #334155; }
 
+  /* Charts Section */
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin: 24px 0 14px;
+    padding: 10px 14px;
+    background: linear-gradient(90deg, #0a2540 0%, #143a66 100%);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon {
+    font-size: 1.2rem;
+  }
+
   .charts-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
   @media (min-width: 900px) { .charts-grid { grid-template-columns: 1fr 1fr; } }
 
@@ -272,18 +290,40 @@
     border: 1px solid #e2e8f0;
   }
   .chart-title {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #0a2540;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid #f1f5f9;
   }
+  .chart-legend-info {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-gradient {
+    width: 80px;
+    height: 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .gradient-red-green {
+    background: linear-gradient(to left, #16A34A, #FBBF24, #DC2626);
+  }
+  .gradient-green-red {
+    background: linear-gradient(to left, #DC2626, #FBBF24, #16A34A);
+  }
   .chart-container {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 380px;
   }
 
   /* Table Styles */
@@ -395,7 +435,7 @@
 
 <nav class="tabs">
   <button class="tab-btn active" data-tab="upload">📤 بارگذاری فایل</button>
-  <button class="tab-btn" data-tab="dashboard"> داشبورد کیفی</button>
+  <button class="tab-btn" data-tab="dashboard">📊 داشبورد کیفی</button>
 </nav>
 
 <div class="container">
@@ -467,29 +507,75 @@
 
     <div id="dashboard-content">
       <div class="empty-state" id="empty-state">
-        <div class="icon"></div>
+        <div class="icon">📭</div>
         <div class="msg">هنوز داده‌ای در داشبورد موجود نیست.<br>لطفاً از تب «بارگذاری فایل»، فایل اکسل را وارد کنید.</div>
       </div>
 
       <div id="charts-section" style="display:none;">
-        <div class="charts-grid" id="charts-grid">
+        
+        <!-- بخش اول: بیشترین عیب -->
+        <div class="section-title">
+          <span class="icon">📊</span>
+          تحلیل بیشترین عیوب مطرح‌شده
+        </div>
+        <div class="charts-grid">
           <div class="chart-wrap">
-            <div class="chart-title">جدول اثربخشی بر اساس گروه محصول</div>
+            <div class="chart-title">بیشترین عیب بر اساس گروه محصول</div>
+            <div class="chart-legend-info">
+              <span>کم</span>
+              <span class="legend-gradient gradient-red-green"></span>
+              <span>زیاد (بحرانی)</span>
+            </div>
             <div class="chart-container">
-              <canvas id="chart-product"></canvas>
+              <canvas id="chart-product-count"></canvas>
             </div>
           </div>
           <div class="chart-wrap">
-            <div class="chart-title">جدول اثربخشی بر اساس عیب ریخته‌گری</div>
+            <div class="chart-title">بیشترین عیب بر اساس نوع عیب ریخته‌گری</div>
+            <div class="chart-legend-info">
+              <span>کم</span>
+              <span class="legend-gradient gradient-red-green"></span>
+              <span>زیاد (بحرانی)</span>
+            </div>
             <div class="chart-container">
-              <canvas id="chart-defect"></canvas>
+              <canvas id="chart-defect-count"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- بخش دوم: اثربخشی -->
+        <div class="section-title">
+          <span class="icon">🎯</span>
+          تحلیل اثربخشی اقدامات انجام‌شده
+        </div>
+        <div class="charts-grid">
+          <div class="chart-wrap">
+            <div class="chart-title">درصد اثربخشی بر اساس گروه محصول</div>
+            <div class="chart-legend-info">
+              <span>ضعیف (قرمز)</span>
+              <span class="legend-gradient gradient-green-red"></span>
+              <span>قوی (سبز)</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-product-eff"></canvas>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-title">درصد اثربخشی بر اساس نوع عیب ریخته‌گری</div>
+            <div class="chart-legend-info">
+              <span>ضعیف (قرمز)</span>
+              <span class="legend-gradient gradient-green-red"></span>
+              <span>قوی (سبز)</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-defect-eff"></canvas>
             </div>
           </div>
         </div>
 
         <!-- جدول داده‌های اصلی -->
         <div class="table-section">
-          <div class="table-title"> مسترلیست گزارش‌های کیفی</div>
+          <div class="table-title">📋 مسترلیست گزارش‌های کیفی</div>
           <div class="table-scroll">
             <table class="data-table" id="reports-table">
               <thead>
@@ -521,7 +607,7 @@
 
 <script>
 const ADMIN_PASSWORD = 'as1414';
-const STORAGE_KEY_DATA = 'casting_dashboard_data';
+const STORAGE_KEY_DATA = 'casting_dashboard_data_v3';
 const STORAGE_KEY_AUTH = 'casting_dashboard_auth';
 
 function showToast(msg, duration = 2800) {
@@ -643,7 +729,6 @@ processBtn.addEventListener('click', () => {
       const data = new Uint8Array(e.target.result);
       const wb = XLSX.read(data, { type: 'array' });
       
-      // پیدا کردن شیت "مسترلیست گزارش کیفی"
       let sheetName = wb.SheetNames.find(name => name.includes('مسترلیست'));
       if (!sheetName) sheetName = wb.SheetNames[1];
       
@@ -697,7 +782,6 @@ processBtn.addEventListener('click', () => {
 function parseMasterList(rows) {
   if (!rows || rows.length < 5) return null;
 
-  // پیدا کردن تاریخ
   let fileDate = null;
   for (let r = 0; r < Math.min(rows.length, 10); r++) {
     const row = rows[r] || [];
@@ -709,7 +793,6 @@ function parseMasterList(rows) {
     if (fileDate) break;
   }
 
-  // پیدا کردن ردیف سرستون‌ها
   let headerRowIdx = -1;
   let productColStart = -1;
   let defectColStart = -1;
@@ -737,7 +820,6 @@ function parseMasterList(rows) {
   const defectTable = [];
   const reportsTable = [];
 
-  // استخراج داده‌های جدول اول (گزارش‌ها)
   for (let r = headerRowIdx + 1; r < rows.length; r++) {
     const row = rows[r] || [];
     
@@ -748,7 +830,6 @@ function parseMasterList(rows) {
     const partName = String(row[4] || '').trim();
     const description = String(row[5] || '').trim();
 
-    // بررسی اینکه آیا این ردیف جزو جدول اول است (دارای شماره ردیف و تاریخ)
     if (rowNum && /^\d+$/.test(String(rowNum).trim()) && reportDate && /\d{4}\/\d{2}\/\d{2}/.test(reportDate)) {
       reportsTable.push({
         row: rowNum,
@@ -805,7 +886,7 @@ function refreshUploadStatus() {
     const d = JSON.parse(raw);
     el.innerHTML = `
       ✅ آخرین فایل بارگذاری‌شده: <b>${d.fileName}</b><br>
-       تاریخ مندرج در فایل: <b dir="ltr">${d.fileDate || '---'}</b><br>
+      📅 تاریخ مندرج در فایل: <b dir="ltr">${d.fileDate || '---'}</b><br>
       📊 تعداد گزارش‌های کیفی: <b>${d.reportsCount}</b> | گروه‌های محصول: <b>${d.productTable.length}</b> | انواع عیوب: <b>${d.defectTable.length}</b>
     `;
   } catch (e) {
@@ -820,8 +901,12 @@ refreshBtn.addEventListener('click', () => {
   showToast('🔄 داشبورد به‌روزرسانی شد');
 });
 
-let chartProduct = null;
-let chartDefect = null;
+const charts = {
+  productCount: null,
+  defectCount: null,
+  productEff: null,
+  defectEff: null
+};
 
 function renderDashboard() {
   const raw = localStorage.getItem(STORAGE_KEY_DATA);
@@ -849,16 +934,233 @@ function renderDashboard() {
       ? `<span class="status-badge badge-success">فعال</span> <span style="font-size:0.82rem; color:#334155;">${d.fileName}</span>`
       : '<span class="status-badge badge-warning">داده‌ای یافت نشد</span>';
 
-    drawBarChart('chart-product', d.productTable, 'product', chart => chartProduct = chart);
-    drawBarChart('chart-defect', d.defectTable, 'defect', chart => chartDefect = chart);
+    // نمودارهای بیشترین عیب (تعداد)
+    drawCountChart('chart-product-count', d.productTable, 'productCount', 'گروه محصول');
+    drawCountChart('chart-defect-count', d.defectTable, 'defectCount', 'عیب ریخته‌گری');
     
-    // نمایش جدول گزارش‌ها
+    // نمودارهای اثربخشی
+    drawEffChart('chart-product-eff', d.productTable, 'productEff', 'گروه محصول');
+    drawEffChart('chart-defect-eff', d.defectTable, 'defectEff', 'عیب ریخته‌گری');
+    
     renderReportsTable(d.reportsTable);
   } catch (e) {
     console.error(e);
     emptyState.style.display = 'block';
     chartsSection.style.display = 'none';
   }
+}
+
+/**
+ * تبدیل مقدار به رنگ بر اساس طیف سبز -> زرد -> قرمز
+ * ratio: 0 = سبز (کم)، 1 = قرمز (زیاد)
+ */
+function valueToRedGreenColor(ratio) {
+  // ratio بین 0 و 1
+  ratio = Math.max(0, Math.min(1, ratio));
+  
+  // HSL: hue از 120 (سبز) تا 0 (قرمز)
+  const hue = 120 * (1 - ratio);
+  const saturation = 70;
+  const lightness = 45;
+  
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+
+/**
+ * تبدیل مقدار به رنگ بر اساس طیف قرمز -> زرد -> سبز (برای اثربخشی)
+ * ratio: 0 = قرمز (ضعیف)، 1 = سبز (قوی)
+ */
+function valueToGreenRedColor(ratio) {
+  ratio = Math.max(0, Math.min(1, ratio));
+  const hue = 120 * ratio; // 0=قرمز، 120=سبز
+  const saturation = 70;
+  const lightness = 45;
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+
+function drawCountChart(canvasId, data, chartKey, categoryLabel) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+
+  if (charts[chartKey]) {
+    charts[chartKey].destroy();
+    charts[chartKey] = null;
+  }
+
+  if (!data || data.length === 0) return;
+
+  // مرتب‌سازی بر اساس تعداد (نزولی)
+  const sorted = [...data].sort((a, b) => b.count - a.count);
+  
+  const labels = sorted.map(d => d.name);
+  const values = sorted.map(d => d.count);
+  const pcts = sorted.map(d => d.pct);
+
+  const maxVal = Math.max(...values);
+  const minVal = Math.min(...values);
+  const range = maxVal - minVal || 1;
+
+  // رنگ‌ها: هرچه تعداد بیشتر، قرمزتر
+  const colors = values.map(v => {
+    const ratio = (v - minVal) / range;
+    return valueToRedGreenColor(ratio);
+  });
+
+  charts[chartKey] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'تعداد تکرار مشکل',
+        data: values,
+        backgroundColor: colors,
+        borderColor: colors.map(c => c),
+        borderWidth: 2,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          rtl: true,
+          textDirection: 'rtl',
+          backgroundColor: '#0a2540',
+          titleColor: '#ffffff',
+          bodyColor: '#ffffff',
+          titleFont: { family: 'Tahoma', size: 13, weight: '700' },
+          bodyFont: { family: 'Tahoma', size: 12 },
+          padding: 12,
+          cornerRadius: 6,
+          callbacks: {
+            title: (items) => `${categoryLabel}: ${items[0].label}`,
+            label: function(context) {
+              const idx = context.dataIndex;
+              return `تعداد تکرار: ${values[idx]}  |  اثربخشی: ${pcts[idx]}%`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'تعداد تکرار مشکل',
+            font: { family: 'Tahoma', size: 11, weight: '600' },
+            color: '#0a2540'
+          },
+          ticks: { font: { family: 'Tahoma', size: 11 }, color: '#334155' },
+          grid: { color: '#e2e8f0' }
+        },
+        x: {
+          ticks: {
+            font: { family: 'Tahoma', size: 10, weight: '600' },
+            color: '#0a2540',
+            maxRotation: 45,
+            minRotation: 45
+          },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+}
+
+function drawEffChart(canvasId, data, chartKey, categoryLabel) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+
+  if (charts[chartKey]) {
+    charts[chartKey].destroy();
+    charts[chartKey] = null;
+  }
+
+  if (!data || data.length === 0) return;
+
+  // مرتب‌سازی بر اساس درصد اثربخشی (نزولی - بهترین‌ها اول)
+  const sorted = [...data].sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
+  
+  const labels = sorted.map(d => d.name);
+  const values = sorted.map(d => parseFloat(d.pct));
+  const counts = sorted.map(d => d.count);
+
+  const maxVal = Math.max(...values);
+  const minVal = Math.min(...values);
+  const range = maxVal - minVal || 1;
+
+  // رنگ‌ها: هرچه اثربخشی بیشتر، سبزتر
+  const colors = values.map(v => {
+    const ratio = (v - minVal) / range;
+    return valueToGreenRedColor(ratio);
+  });
+
+  charts[chartKey] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'درصد اثربخشی',
+        data: values,
+        backgroundColor: colors,
+        borderColor: colors.map(c => c),
+        borderWidth: 2,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          rtl: true,
+          textDirection: 'rtl',
+          backgroundColor: '#0a2540',
+          titleColor: '#ffffff',
+          bodyColor: '#ffffff',
+          titleFont: { family: 'Tahoma', size: 13, weight: '700' },
+          bodyFont: { family: 'Tahoma', size: 12 },
+          padding: 12,
+          cornerRadius: 6,
+          callbacks: {
+            title: (items) => `${categoryLabel}: ${items[0].label}`,
+            label: function(context) {
+              const idx = context.dataIndex;
+              return `اثربخشی: ${values[idx].toFixed(1)}%  |  تعداد تکرار: ${counts[idx]}`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'درصد اثربخشی (%)',
+            font: { family: 'Tahoma', size: 11, weight: '600' },
+            color: '#0a2540'
+          },
+          ticks: {
+            font: { family: 'Tahoma', size: 11 },
+            color: '#334155',
+            callback: (v) => v + '%'
+          },
+          grid: { color: '#e2e8f0' }
+        },
+        x: {
+          ticks: {
+            font: { family: 'Tahoma', size: 10, weight: '600' },
+            color: '#0a2540',
+            maxRotation: 45,
+            minRotation: 45
+          },
+          grid: { display: false }
+        }
+      }
+    }
+  });
 }
 
 function renderReportsTable(reports) {
@@ -881,94 +1183,6 @@ function renderReportsTable(reports) {
     `;
     tbody.appendChild(tr);
   });
-}
-
-function drawBarChart(canvasId, data, type, setter) {
-  const ctx = document.getElementById(canvasId).getContext('2d');
-
-  // پالت رنگی متضاد و واضح
-  const vibrantColors = [
-    '#DC2626', '#2563EB', '#16A34A', '#F59E0B', '#9333EA',
-    '#EC4899', '#14B8A6', '#F97316', '#8B5CF6', '#06B6D4',
-    '#EF4444', '#3B82F6', '#10B981', '#FBBF24', '#A855F7'
-  ];
-
-  if (data.length === 0) {
-    if (type === 'product' && chartProduct) { chartProduct.destroy(); chartProduct = null; }
-    if (type === 'defect' && chartDefect) { chartDefect.destroy(); chartDefect = null; }
-    return;
-  }
-
-  const labels = data.map(d => d.name);
-  const values = data.map(d => d.count);
-  const pcts = data.map(d => d.pct);
-
-  const config = {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'تعداد تکرار مشکل',
-        data: values,
-        backgroundColor: vibrantColors.slice(0, data.length),
-        borderColor: vibrantColors.slice(0, data.length).map(c => c),
-        borderWidth: 2,
-        borderRadius: 6
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          rtl: true,
-          textDirection: 'rtl',
-          backgroundColor: '#0a2540',
-          titleColor: '#ffffff',
-          bodyColor: '#ffffff',
-          titleFont: { family: 'Tahoma', size: 13, weight: '700' },
-          bodyFont: { family: 'Tahoma', size: 12 },
-          padding: 12,
-          cornerRadius: 6,
-          callbacks: {
-            label: function(context) {
-              const idx = context.dataIndex;
-              const v = values[idx];
-              const p = pcts[idx];
-              return `تعداد: ${v}  |  اثربخشی: ${p}%`;
-            }
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: { font: { family: 'Tahoma', size: 11 }, color: '#334155' },
-          grid: { color: '#e2e8f0' }
-        },
-        x: {
-          ticks: {
-            font: { family: 'Tahoma', size: 10, weight: '600' },
-            color: '#0a2540',
-            maxRotation: 45,
-            minRotation: 45
-          },
-          grid: { display: false }
-        }
-      }
-    }
-  };
-
-  if (type === 'product') {
-    if (chartProduct) chartProduct.destroy();
-    chartProduct = new Chart(ctx, config);
-    setter(chartProduct);
-  } else {
-    if (chartDefect) chartDefect.destroy();
-    chartDefect = new Chart(ctx, config);
-    setter(chartDefect);
-  }
 }
 
 window.addEventListener('load', () => {
