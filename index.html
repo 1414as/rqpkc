@@ -174,7 +174,6 @@ const tbody=document.getElementById('reports-tbody');
 tbody.innerHTML='';
 
 if(d.reportsTable&&d.reportsTable.length>0){
-// مرتب‌سازی معکوس: جدیدترین (بزرگترین شماره ردیف) اول
 const sortedReports=[...d.reportsTable].sort((a,b)=>parseInt(b.row)-parseInt(a.row));
 
 sortedReports.forEach(r=>{
@@ -220,7 +219,7 @@ data:{labels,datasets:[{data:values,backgroundColor:colors,borderWidth:2,borderR
 options:{
 responsive:true,
 maintainAspectRatio:false,
-plugins:{legend:{display:false},tooltip:{rtl:true,textDirection:'rtl',backgroundColor:'#0a2540',titleFont:{family:'Tahoma',size:13},bodyFont:{family:'Tahoma',size:12},callbacks:{label:function(context){const idx=context.dataIndex;const v=values[idx];const p=sorted[idx].pct;return isCount?'تعداد: '+v+' | اثربخشی: '+p+'%':'اثربخشی: '+v.toFixed(1)+'% | تعداد: '+sorted[idx].count}}}}},
+plugins:{legend:{display:false},tooltip:{rtl:true,textDirection:'rtl',backgroundColor:'#0a2540',titleFont:{family:'Tahoma',size:13},bodyFont:{family:'Tahoma',size:12}}},
 scales:{y:{beginAtZero:true,max:isCount?undefined:100,ticks:{font:{family:'Tahoma',size:11}}},x:{ticks:{maxRotation:45,minRotation:45,font:{size:10,family:'Tahoma'}}}}
 }
 })
