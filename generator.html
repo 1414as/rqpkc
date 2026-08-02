@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تولید کننده داده داشبورد</title>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+body{font-family:Tahoma,sans-serif;padding:20px;background:#f5f5f5;color:#0a2540}
+.container{max-width:800px;margin:0 auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+h1{text-align:center;color:#0a2540}
+.dropzone{border:2px dashed #cbd5e1;border-radius:10px;padding:40px;text-align:center;cursor:pointer;background:#f8fafc;margin:20px 0}
+.dropzone:hover{border-color:#0a2540;background:#f1f5f9}
+textarea{width:100%;height:300px;font-family:monospace;font-size:12px;direction:ltr;text-align:left;padding:10px;border:1px solid #cbd5e1;border-radius:6px;margin-top:10px}
+.btn{padding:12px 24px;background:#0a2540;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:Tahoma;font-size:14px;margin-top:10px}
+.btn:hover{background:#143a66}
+.success{color:#166534;background:#dcfce7;padding:10px;border-radius:6px;margin-top:10px;display:none}
+.steps{background:#fffbeb;border:1px solid #fcd34d;padding:15px;border-radius:6px;margin-bottom:20px;font-size:0.9rem;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🛠️ ابزار تولید داده داشبورد</h1>
+<div class="steps">
+<strong>راهنمای ۳ مرحله‌ای:</strong><br>
+۱. فایل اکسل را در کادر زیر رها کنید<br>
+۲. روی دکمه "کپی کردن کد JSON" کلیک کنید<br>
+۳. به GitHub بروید → فایل data.json → Edit → Paste → Commit changes
+</div>
+<div class="dropzone" id="dropzone">
+<div style="font-size:2rem;margin-bottom:10px"></div>
+<div>فایل اکسل را اینجا رها کنید یا کلیک کنید</div>
+<input type="file" id="file-input" accept=".xlsx,.xls" style="display:none">
+</div>
+<div id="result-area" style="display:none">
+<h3>✅ داده‌ها استخراج شدند!</h3>
+<button class="btn" onclick="copyJSON()">📋 کپی کردن کد JSON</button>
+<div id="copy-msg" class="success">✅ کپی شد! حالا در GitHub فایل data.json را Edit کرده و Paste کنید.</div>
+<textarea id="json-output" readonly></textarea>
+</div>
+</div>
+<script>
+function parseData(rows){
+let fileDate=null;
+for(let r=0;r<10;r++){
+const row=rows[r]||[];
+for(let c=0;c<row.length;c++){
+const m=String(row[c]||'').match(/(\d{4}\/\d{2}\/\d{2})/);
+if(m){fileDate=m[1];break}
+}
+if(fileDate)break
+}
+let headerIdx=-1,prodCol=-1,defCol=-1;
+for(let r=0;r<rows.length;r++){
+const row=rows[r]||[];
+for(let c=0;c<row.length;c++){
+const cell=String(row[c]||'').trim();
+if(cell==='گروه محصول'&&c>=10&&prodCol===-1){prodCol=c;headerIdx=r}
+if(cell==='عیب ریخته‌گری'&&c>=14&&defCol===-1){defCol=c}
+}
+if(headerIdx!==-1&&prodCol!==-1&&defCol!==-1)break
+}
+const productTable=[],defectTable=[],reportsTable=[];
+for(let r=headerIdx+1;r<rows.length;r++){
+const row=rows[r]||[];
+const rowNum=row[0];
+const date=String(row[1]||'').trim();
+if(rowNum&&/^\d+$/.test(String(rowNum).trim())&&date&&/\d{4}\/\d{2}\/\d{2}/.test(date)){
+reportsTable.push({row:rowNum,date:date,defect:String(row[2]||'').trim(),partName:String(row[4]||'').trim(),description:String(row[5]||'').trim()})
+}
+const pName=String(row[prodCol]||'').trim();
+if(pName&&pName!=='گروه محصول'&&pName!=='مجموع'){
+const count=parseFloat(row[prodCol+1])||0;
+const pct=parseFloat(String(row[prodCol+2]).replace('%','').replace(/[^\d.-]/g,''))||0;
+if(count>0)productTable.push({name:pName,count,pct:(pct<1?pct*100:pct).toFixed(1)})
+}
+const dName=String(row[defCol]||'').trim();
+if(dName&&dName!=='عیب ریخته‌گری'&&dName!=='مجموع'){
+const count=parseFloat(row[defCol+1])||0;
+const pct=parseFloat(String(row[defCol+2]).replace('%','').replace(/[^\d.-]/g,''))||0;
+if(count>0)defectTable.push({name:dName,count,pct:(pct<1?pct*100:pct).toFixed(1)})
+}
+}
+return{fileDate,productTable,defectTable,reportsTable,reportsCount:reportsTable.length}
+}
+const dropzone=document.getElementById('dropzone');
+const fileInput=document.getElementById('file-input');
+dropzone.addEventListener('click',()=>fileInput.click());
+fileInput.addEventListener('change',e=>processFile(e.target.files[0]));
+dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.style.borderColor='#0a2540'});
+dropzone.addEventListener('dragleave',e=>{e.preventDefault();dropzone.style.borderColor='#cbd5e1'});
+dropzone.addEventListener('drop',e=>{
+e.preventDefault();
+dropzone.style.borderColor='#cbd5e1';
+processFile(e.dataTransfer.files[0])
+});
+function processFile(file){
+if(!file)return;
+const reader=new FileReader();
+reader.onload=function(e){
+try{
+const data=new Uint8Array(e.target.result);
+const wb=XLSX.read(data,{type:'array'});
+let sheetName=wb.SheetNames.find(n=>n.includes('مسترلیست'))||wb.SheetNames[1];
+const sheet=wb.Sheets[sheetName];
+const json=XLSX.utils.sheet_to_json(sheet,{header:1,defval:''});
+const parsed=parseData(json);
+const record={
+fileName:file.name,
+uploadDate:new Date().toISOString(),
+fileDate:parsed.fileDate,
+productTable:parsed.productTable,
+defectTable:parsed.defectTable,
+reportsTable:parsed.reportsTable,
+reportsCount:parsed.reportsCount
+};
+document.getElementById('json-output').value=JSON.stringify(record,null,2);
+document.getElementById('result-area').style.display='block'
+}catch(err){
+alert('خطا: '+err.message)
+}
+};
+reader.readAsArrayBuffer(file)
+}
+function copyJSON(){
+const textarea=document.getElementById('json-output');
+textarea.select();
+document.execCommand('copy');
+document.getElementById('copy-msg').style.display='block';
+setTimeout(()=>{document.getElementById('copy-msg').style.display='none'},3000)
+}
+</script>
+</body>
+</html>
