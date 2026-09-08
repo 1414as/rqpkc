@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>داشبورد آنلاین گزارش وضعیت کیفی قطعات ریخته‌گری</title>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
 @font-face {
@@ -133,7 +134,7 @@ body{font-family:'MixedFont', Tahoma, sans-serif;background:#f5f5f5;color:#0a254
 </div>
 
 <div class="section-title">🎯 گزارش اثربخشی اقدامات انجام‌شده</div>
-<div class="charts-grid">
+<div class="charts-grid" style="margin-bottom:20px">
 <div class="chart-wrap">
 <div class="chart-title">درصد اثربخشی بر اساس گروه محصول</div>
 <div class="chart-legend-info"><span>🔴 ضعیف</span><span class="legend-gradient gradient-red-to-green"></span><span>🟢 قوی</span></div>
@@ -143,6 +144,20 @@ body{font-family:'MixedFont', Tahoma, sans-serif;background:#f5f5f5;color:#0a254
 <div class="chart-title">درصد اثربخشی بر اساس نوع عیب ریخته‌گری</div>
 <div class="chart-legend-info"><span>🔴 ضعیف</span><span class="legend-gradient gradient-red-to-green"></span><span>🟢 قوی</span></div>
 <div class="chart-container"><div id="treemap-defect-eff" class="treemap-container"></div></div>
+</div>
+</div>
+
+<div class="section-title">🔧 گزارش بر اساس نام قطعه</div>
+<div class="charts-grid">
+<div class="chart-wrap">
+<div class="chart-title">بیشترین تکرار عیوب بر اساس نام قطعه</div>
+<div class="chart-legend-info"><span>کم 🟢</span><span class="legend-gradient gradient-green-to-red"></span><span>🔴 زیاد (بحرانی)</span></div>
+<div class="chart-container"><canvas id="chart-partname-count"></canvas></div>
+</div>
+<div class="chart-wrap">
+<div class="chart-title">درصد اثربخشی بر اساس نام قطعه</div>
+<div class="chart-legend-info"><span>🔴 ضعیف</span><span class="legend-gradient gradient-red-to-green"></span><span>🟢 قوی</span></div>
+<div class="chart-container"><canvas id="chart-partname-eff"></canvas></div>
 </div>
 </div>
 
@@ -175,6 +190,7 @@ const GITHUB_REPO='1414as/rqpkc';
 const FILE_PATH='data.json';
 
 let rawData = null;
+const charts = {};
 
 function getProductGroup(partName) {
     const name = partName || "";
@@ -209,7 +225,7 @@ if(!res.ok){
 url='https://raw.githubusercontent.com/'+GITHUB_REPO+'/master/'+FILE_PATH+'?t='+Date.now();
 res=await fetch(url)
 }
-if(!res.ok)throw new Error('داده‌ای یافت نشد. لطفاً ابتدا از طریق generator.html داده‌ها را تولید و در data.json قرار دهید.');
+if(!res.ok)throw new Error('داده‌ای یافت نشد.');
 
 const text=await res.text();
 if(!text||text.trim()==='')throw new Error('فایل data.json خالی است.');
@@ -224,7 +240,7 @@ populateFilters();
 applyFilters();
 
 }catch(err){
-loadingEl.innerHTML='<div style="color:#dc2626;padding:20px;border:2px solid #dc2626;border-radius:8px;background:#fef2f2">❌ '+err.message+'<br><br><strong>راهنما:</strong> فایل generator.html را روی کامپیوتر خود باز کنید، فایل اکسل را رها کنید، کد JSON را کپی کرده و در فایل data.json ریپازیتوری GitHub جایگذاری (Paste) کنید.</div>';
+loadingEl.innerHTML='<div style="color:#dc2626;padding:20px;border:2px solid #dc2626;border-radius:8px;background:#fef2f2">❌ '+err.message+'</div>';
 console.error('Dashboard Load Error:',err)
 }
 }
@@ -292,9 +308,11 @@ function applyFilters() {
 
     const productCounts = {};
     const defectCounts = {};
+    const partNameCounts = {}; // برای نمودارهای پنجم و ششم
     const totalFiltered = filteredReports.length;
 
     filteredReports.forEach(r => {
+        // گروه محصول
         if (!defectCounts[r.defect]) {
             defectCounts[r.defect] = { name: r.defect, count: 0, pct: "0.0" };
         }
@@ -306,19 +324,34 @@ function applyFilters() {
             productCounts[groupName] = { name: groupName, count: 0, pct: orig ? orig.pct : "0.0" };
         }
         productCounts[groupName].count++;
+
+        // نام قطعه (برای نمودارهای پنجم و ششم)
+        if (!partNameCounts[r.partName]) {
+            partNameCounts[r.partName] = { name: r.partName, count: 0, pct: "0.0" };
+        }
+        partNameCounts[r.partName].count++;
     });
 
     Object.values(defectCounts).forEach(d => {
         d.pct = totalFiltered > 0 ? ((d.count / totalFiltered) * 100).toFixed(1) : "0.0";
     });
 
+    Object.values(partNameCounts).forEach(p => {
+        p.pct = totalFiltered > 0 ? ((p.count / totalFiltered) * 100).toFixed(2) : "0.0";
+    });
+
     const filteredProductTable = Object.values(productCounts).sort((a, b) => b.count - a.count);
     const filteredDefectTable = Object.values(defectCounts).sort((a, b) => b.count - a.count);
+    const filteredPartNameTable = Object.values(partNameCounts).filter(p => p.count > 0).sort((a, b) => b.count - a.count);
 
     drawTreemap('treemap-product-count', filteredProductTable, 'count', true);
     drawTreemap('treemap-defect-count', filteredDefectTable, 'count', true);
     drawTreemap('treemap-product-eff', filteredProductTable, 'pct', false);
     drawTreemap('treemap-defect-eff', filteredDefectTable, 'pct', false);
+
+    // نمودارهای پنجم و ششم با داده‌های فیلتر شده
+    drawBarChart('chart-partname-count', filteredPartNameTable, 'count', true);
+    drawBarChart('chart-partname-eff', filteredPartNameTable, 'pct', false);
 
     const tbody = document.getElementById('reports-tbody');
     tbody.innerHTML = '';
@@ -373,12 +406,10 @@ function drawTreemap(containerId, data, valueKey, isCount) {
         let color;
         
         if (isCount) {
-            // نمودار تعداد عیب: کم = سبز (120)، زیاد = قرمز (0)
             const hue = 120 * (1 - ratio);
             const lightness = 35 + (1 - ratio) * 10;
             color = `hsl(${hue}, 75%, ${lightness}%)`;
         } else {
-            // نمودار اثربخشی: کم = قرمز (0)، زیاد = سبز (120)
             const hue = 120 * ratio;
             const lightness = 35 + ratio * 10;
             color = `hsl(${hue}, 75%, ${lightness}%)`;
@@ -412,6 +443,88 @@ function drawTreemap(containerId, data, valueKey, isCount) {
 
         cell.title = `${leaf.data.name}: ${isCount ? leaf.value.toLocaleString('fa-IR') + ' مورد' : leaf.value.toFixed(1) + '%'}`;
         container.appendChild(cell);
+    });
+}
+
+function drawBarChart(canvasId, data, valueKey, isCount) {
+    const ctx = document.getElementById(canvasId).getContext('2d');
+    
+    if (charts[canvasId]) {
+        charts[canvasId].destroy();
+    }
+
+    if (!data || data.length === 0) {
+        charts[canvasId] = new Chart(ctx, {
+            type: 'bar',
+            data: { labels: ['بدون داده'], datasets: [{ data: [0], backgroundColor: '#e2e8f0' }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+        return;
+    }
+
+    const labels = data.map(d => d.name);
+    const values = data.map(d => isCount ? d.count : parseFloat(d.pct));
+
+    const max = Math.max(...values);
+    const min = Math.min(...values);
+    const range = max - min || 1;
+
+    const colors = values.map(v => {
+        const ratio = (v - min) / range;
+        let hue;
+        if (isCount) {
+            hue = 120 * (1 - ratio);
+        } else {
+            hue = 120 * ratio;
+        }
+        const lightness = 35 + (isCount ? (1 - ratio) : ratio) * 10;
+        return `hsl(${hue}, 75%, ${lightness}%)`;
+    });
+
+    charts[canvasId] = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: colors,
+                borderWidth: 2,
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    rtl: true,
+                    textDirection: 'rtl',
+                    backgroundColor: '#0a2540',
+                    titleFont: { family: 'B Nazanin, Tahoma', size: 13 },
+                    bodyFont: { family: 'B Nazanin, Tahoma', size: 12 },
+                    callbacks: {
+                        label: function(context) {
+                            return isCount ? context.parsed.x + ' مورد' : context.parsed.x.toFixed(1) + '%';
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: isCount ? undefined : 100,
+                    ticks: { font: { family: 'B Nazanin, Tahoma', size: 11 } }
+                },
+                y: {
+                    ticks: {
+                        font: { size: 10, family: 'B Nazanin, Tahoma' },
+                        autoSkip: false
+                    }
+                }
+            }
+        }
     });
 }
 
