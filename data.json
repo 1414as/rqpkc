@@ -1,5 +1,5 @@
 {
-  "source": "مسترلیستگزارشکیفی.xlsx",
+  "source": "مسترلیست گزارش کیفی.xlsx",
   "sheet": "مسترلیست گزارش کیفی",
   "rows": [
     {
@@ -449,7 +449,7 @@
     {
       "row": 38,
       "date": "1405/03/23",
-      "defect": "دو تکه بودن",
+      "defect": "دو تکه بودن (بازکاری)",
       "group": "دیسک هوا خنک",
       "part": "دیسک هوا خنک ماندو ماشینکاری شده",
       "description": "دوتکه بودن دیسک ماندو روزشمار ۴۸ تا ۵۸",
@@ -545,10 +545,10 @@
     {
       "row": 46,
       "date": "1405/04/06",
-      "defect": "دو تکه بودن",
+      "defect": "دو تکه بودن (بازکاری)",
       "group": "کاسه چرخ",
       "part": "کاسه چرخ پراید طرح جدید ماشینکاری شده",
-      "description": "دو تکه بودن قطعات کاسه پراید خام، موجب شکست و افزایش مصرف ابزار و همچنین کاهش آمار تولید میگردد.",
+      "description": "دو تکه بودن (بازکاری) قطعات کاسه پراید خام، موجب شکست و افزایش مصرف ابزار و همچنین کاهش آمار تولید میگردد.",
       "company": "پایاذوب کاوه",
       "notify": "FR\n(گروه سیستم مدیریت کیفیت ایتا)",
       "effectiveness": "نامشخص",
@@ -821,10 +821,10 @@
     {
       "row": 69,
       "date": "1405/05/14",
-      "defect": "دو تکه بودن",
+      "defect": "دو تکه بودن (بازکاری)",
       "group": "کاسه چرخ",
       "part": "کاسه چرخ پراید طرح جدید ماشینکاری شده",
-      "description": "افزایش مصرف اینسرت WNMA و TNMA 22 به میزان ۵۰ درصد به دلیل دو تکه بودن قطعات ریخته کری ماسه پراید طرح جدید با روزشمار 60",
+      "description": "افزایش مصرف اینسرت WNMA و TNMA 22 به میزان ۵۰ درصد به دلیل دو تکه بودن (بازکاری) قطعات ریخته کری ماسه پراید طرح جدید با روزشمار 60",
       "company": "پایاذوب کاوه",
       "notify": "FR\n(گروه سیستم مدیریت کیفیت ایتا)",
       "effectiveness": "نامشخص",
@@ -2416,38 +2416,38 @@
     },
     {
       "row": 202,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/16",
+      "defect": "مک",
+      "group": "دیسک سالید",
+      "part": "دیسک سالید پیکان ماشینکاری شده",
+      "description": "۵/۷ درصد ضایعات مک ریخته گری دیسک پیکان در تاریخ ۱۳ آبان",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 203,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/16",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۷/۲ درصد ضایعات مک و خام ماندگی ریخته گری دیسک تیبا در تاریخ ۱۳ آبان",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 204,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/16",
+      "defect": "مک",
+      "group": "دیسک سالید",
+      "part": "دیسک سالید پیکان ماشینکاری شده",
+      "description": "۳/۸ درصد ضایعات مک ریخته گری دیسک پیکان در تاریخ ۱۴ آبان",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
@@ -4207,8 +4207,8 @@
     "groups": [
       {
         "name": "دیسک سالید",
-        "count": 26,
-        "effectiveness": 0.038461538461538464
+        "count": 28,
+        "effectiveness": 0.03571428571428571
       },
       {
         "name": "بوش",
@@ -4217,8 +4217,8 @@
       },
       {
         "name": "دیسک هوا خنک",
-        "count": 133,
-        "effectiveness": 0.42105263157894735
+        "count": 134,
+        "effectiveness": 0.417910447761194
       },
       {
         "name": "کاسه چرخ",
@@ -4233,12 +4233,12 @@
       {
         "name": "براکت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "مجموع",
-        "count": 201,
-        "effectiveness": 0.2935323383084577
+        "count": 204,
+        "effectiveness": 0.28921568627450983
       }
     ],
     "defects": [
@@ -4258,7 +4258,7 @@
         "effectiveness": 0
       },
       {
-        "name": "دو تکه بودن",
+        "name": "دو تکه بودن (بازکاری)",
         "count": 3,
         "effectiveness": 0
       },
@@ -4289,8 +4289,8 @@
       },
       {
         "name": "مک",
-        "count": 92,
-        "effectiveness": 0.010869565217391304
+        "count": 95,
+        "effectiveness": 0.010526315789473684
       },
       {
         "name": "شات نامناسب",
@@ -4299,8 +4299,8 @@
       },
       {
         "name": "مجموع",
-        "count": 197,
-        "effectiveness": 0.20980356928973531
+        "count": 200,
+        "effectiveness": 0.20977236479628825
       }
     ],
     "parts": [
@@ -4341,8 +4341,8 @@
       },
       {
         "name": "دیسک هوا خنک تیبا ماشینکاری شده",
-        "count": 11,
-        "effectiveness": 0.7272727272727273
+        "count": 12,
+        "effectiveness": 0.6666666666666666
       },
       {
         "name": "دیسک هواخنک برلیانس سری 300 ماشینکاری شده",
@@ -4376,7 +4376,7 @@
       },
       {
         "name": "دیسک سالید پیکان ماشینکاری شده",
-        "count": 6,
+        "count": 8,
         "effectiveness": 0
       },
       {
@@ -4397,152 +4397,152 @@
       {
         "name": "دیسک چرخ عقب دنا پلاس توربو",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک ریو اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک جک j4 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک زانتیا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید زانتیا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 206 TU3 اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک L90 اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک پژو 405 اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک پژو 206 اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید پراید اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک ماندو اسپرت",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید آریو ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "CS 35 دیسک جلو هواخنک چانگان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ عقب سالید H30 Cross ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک هیوندای سوناتا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک نیسان ماکسیما ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک تویوتا کمری ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو MVM 530 مکاشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ عقب MVM 315 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک جک j5 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک j4 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک سانتافه ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک مزدا 3 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک هیوندا آزرا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هواخنک کیا سراتو ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ عقب برلیانس H200 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ عقب سالید برلیانس H300 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک جلو هواخنک CS 35 چانگان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک جلو هوا خنک مگان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک شاهین ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک چرخ جلو MVM315 ماشین کاری شده",
@@ -4552,177 +4552,177 @@
       {
         "name": "دیسک سالید شاهین ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دسیک هواخنک چرخ جلو آریو ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ پیکان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک نیسان op50 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 206tu5 op50 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسیک سالید op50tu3 206 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 50op206ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک OP50 405ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک عقب 206 سالید TU5",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 4567 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید2108 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 1445 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ OMC 808 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه OMC 122 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه OMC 128 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ omc 122 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 4110 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 9223 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ گازل ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ جلو نیسان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 5656 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید2121 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک گازل ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 2101 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 2112 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ 103 OMC ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 4020 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 8515 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ OMC 108 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ عقب نیسان ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک 1016 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک 4151 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 2805 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید 8105 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید چرخ عقب پارس ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید TU3 پژو 206 ماشینکاری شده",
@@ -4732,57 +4732,57 @@
       {
         "name": "براکت  گیربکس دنا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 4249 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هوا خنک 4294 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 2586 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک R64 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک 2722 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک هواخنک دنا پلاس ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ وانت پراید ماشینکاری شده",
         "count": 1,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "توپی چرخ جلو پراید طرح جدید ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "بوش TU3  آبگرد شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ L90 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "کاسه چرخ عقب 206 مدل TU3 ماشینکاری شده",
@@ -4802,22 +4802,22 @@
       {
         "name": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک سالید چرخ جلو مزدا کارا ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو هایما S7 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       },
       {
         "name": "دیسک چرخ جلو برلیانس سری 200 ماشینکاری شده",
         "count": 0,
-        "effectiveness": "#DIV/0!"
+        "effectiveness": ""
       }
     ]
   }
