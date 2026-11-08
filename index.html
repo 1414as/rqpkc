@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="داشبورد آنلاین گزارش وضعیت ریخته‌گری و اثربخشی مشکلات کیفی" />
+  <title>گزارش آنلاین وضعیت ریخته‌گری</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="header-brand logo-left">
+        <div class="logo-slot" id="ezamLogo" data-label="لوگوی عظام">
+          <span class="logo-mark">ع</span>
+          <span class="logo-caption">لوگوی عظام</span>
+        </div>
+      </div>
+      <div class="header-title">
+        <h1>گزارش آنلاین وضعیت ریخته‌گری</h1>
+      </div>
+      <div class="header-brand logo-right">
+        <div class="logo-slot" id="pouyaLogo" data-label="لوگوی پویانوین">
+          <span class="logo-mark">پ</span>
+          <span class="logo-caption">لوگوی پویانوین</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-band">
+        <div>
+          <span class="section-kicker">داشبورد مدیریتی کیفیت</span>
+          <p class="update-meta" id="dataUpdatedAt">آخرین به‌روزرسانی داده‌ها: در حال محاسبه...</p>
+        </div>
+        <div class="hero-actions">
+          <button class="primary-button" id="resetFilters" type="button">بازنشانی فیلترها</button>
+        </div>
+      </section>
+
+      <section class="filters-panel" aria-labelledby="filtersTitle">
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">پالایش اطلاعات</span>
+            <h2 id="filtersTitle">فیلترهای تعاملی</h2>
+          </div>
+          <span id="filterStatus" class="status-pill">در حال بارگذاری...</span>
+        </div>
+        <div class="filter-grid">
+          <div class="filter-field" data-filter="year">
+            <label for="yearFilter">سال گزارش</label>
+            <div class="multi-select" id="yearFilter" tabindex="0">
+              <button class="multi-select-trigger" type="button"><span>انتخاب سال</span><span class="chevron">⌄</span></button>
+              <div class="options-menu"></div>
+            </div>
+          </div>
+          <div class="filter-field" data-filter="month">
+            <label for="monthFilter">ماه گزارش</label>
+            <div class="multi-select" id="monthFilter" tabindex="0">
+              <button class="multi-select-trigger" type="button"><span>انتخاب ماه</span><span class="chevron">⌄</span></button>
+              <div class="options-menu"></div>
+            </div>
+          </div>
+          <div class="filter-field" data-filter="defect">
+            <label for="defectFilter">عیب ریخته‌گری</label>
+            <div class="multi-select" id="defectFilter" tabindex="0">
+              <button class="multi-select-trigger" type="button"><span>انتخاب عیب</span><span class="chevron">⌄</span></button>
+              <div class="options-menu"></div>
+            </div>
+          </div>
+          <div class="filter-field" data-filter="group">
+            <label for="groupFilter">گروه محصول</label>
+            <div class="multi-select" id="groupFilter" tabindex="0">
+              <button class="multi-select-trigger" type="button"><span>انتخاب گروه</span><span class="chevron">⌄</span></button>
+              <div class="options-menu"></div>
+            </div>
+          </div>
+          <div class="filter-field" data-filter="part">
+            <label for="partFilter">نام قطعه</label>
+            <div class="multi-select" id="partFilter" tabindex="0">
+              <button class="multi-select-trigger" type="button"><span>انتخاب قطعه</span><span class="chevron">⌄</span></button>
+              <div class="options-menu"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-grid" id="metricGrid" aria-label="خلاصه شاخص‌ها"></section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">تحلیل گروه محصول</span><h2>اثربخشی براساس گروه محصول</h2></div>
+        </div>
+        <div class="chart-grid two-up">
+          <article class="chart-card"><div class="chart-title"><h3>تعداد مشکل براساس گروه محصول</h3><span class="legend-dot red"></span><span class="chart-note">قرمز: بیشتر · سبز: کمتر</span></div><div id="groupCountChart" class="chart"></div></article>
+          <article class="chart-card"><div class="chart-title"><h3>درصد اثربخشی براساس گروه محصول</h3><span class="legend-dot green"></span><span class="chart-note">سبز: بیشتر · قرمز: کمتر</span></div><div id="groupEffectChart" class="chart"></div></article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">تحلیل عیب</span><h2>اثربخشی براساس عیب ریخته‌گری</h2></div>
+        </div>
+        <div class="chart-grid two-up">
+          <article class="chart-card"><div class="chart-title"><h3>تعداد مشکل براساس عیب ریخته‌گری</h3><span class="legend-dot red"></span><span class="chart-note">قرمز: بیشتر · سبز: کمتر</span></div><div id="defectCountChart" class="chart"></div></article>
+          <article class="chart-card"><div class="chart-title"><h3>درصد اثربخشی براساس عیب ریخته‌گری</h3><span class="legend-dot green"></span><span class="chart-note">سبز: بیشتر · قرمز: کمتر</span></div><div id="defectEffectChart" class="chart"></div></article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">تحلیل نام قطعه</span><h2>تکرار مشکل و درصد اثربخشی براساس قطعه</h2></div>
+        </div>
+        <div class="chart-grid two-up">
+          <article class="chart-card wide-chart"><div class="chart-title"><h3>تعداد تکرار مشکل براساس نام قطعه</h3><span class="chart-note">نمایش قطعات پرتکرار</span></div><div id="partCountChart" class="chart"></div></article>
+          <article class="chart-card wide-chart"><div class="chart-title"><h3>درصد اثربخشی براساس نام قطعه</h3><span class="legend-dot green"></span><span class="chart-note">سبز: بیشتر · قرمز: کمتر</span></div><div id="partEffectChart" class="chart"></div></article>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">روند زمانی</span><h2>تعداد تکرار مشکل ریخته‌گری در ماه‌های شمسی</h2></div>
+        </div>
+        <article class="chart-card monthly-card"><div id="monthlyChart" class="chart"></div></article>
+      </section>
+
+      <section class="dashboard-section reports-section">
+        <div class="section-heading">
+          <div><span class="section-kicker">جزئیات گزارش‌ها</span><h2>مسترلیست گزارش کیفی</h2></div>
+          <div class="table-tools"><span id="tableCount" class="section-note"></span><button class="text-button" id="downloadFiltered" type="button">دریافت JSON فیلترشده</button></div>
+        </div>
+        <div class="table-frame">
+          <table id="reportsTable">
+            <thead><tr><th>ردیف</th><th>تاریخ گزارش</th><th>عیب ریخته‌گری</th><th>گروه محصول</th><th>نام قطعه</th><th>شرح گزارش</th><th>اثر بخشی</th><th>توضیحات تأمین‌کننده</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>گزارش آنلاین وضعیت ریخته‌گری</strong><span>نسخه تعاملی مبتنی بر مسترلیست گزارش کیفی</span></div>
+      <div>طراحی و توسعه: <strong>عباس صادقی</strong> · کلیه حقوق محفوظ است © ۱۴۰۵ · <a href="mailto:1abbassdgh@gmail.com">1abbassdgh@gmail.com</a></div>
+    </footer>
+  </div>
+  <script>
+    // لوگوها را در پوشه assets مخزن GitHub با همین نام‌ها قرار دهید.
+    // مسیر نسبی باعث می‌شود GitHub Pages آن‌ها را از همان مخزن بخواند.
+    window.DASHBOARD_LOGOS = {
+      pouyanovin: 'assets/pouyanovin.png',
+      ezam: 'assets/ezam.png'
+    };
+  </script>
+  <script src="app.js?v=ui-v3-20261108"></script>
+</body>
+</html>
