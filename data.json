@@ -2464,7 +2464,7 @@
     },
     {
       "row": 206,
-      "date": "1405/08/17",
+      "date": "1405/08/18",
       "defect": "مک",
       "group": "دیسک هوا خنک",
       "part": "دیسک هوا خنک روآ ماشینکاری شده",
@@ -2476,158 +2476,158 @@
     },
     {
       "row": 207,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/19",
+      "defect": "شات نامناسب",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "افزایش مصرف اینسرت TNMA 22 و WNMA به میزان ۳۳ درصد به دلیل شات نامناسب قطعات دیسک تیبا روزشمار ۲۲۷",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 208,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/19",
+      "defect": "شات نامناسب",
+      "group": "دیسک سالید",
+      "part": "دیسک سالید پراید ماشینکاری شده",
+      "description": "افزایش مصرف اینسرت TNMA 22  به میزان ۳۳ درصد به دلیل شات نامناسب قطعات دیسک پراید روزشمار ۲۲۲",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 209,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/19",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک روآ ماشینکاری شده",
+      "description": "۳/۳ درصد ضایعات مک ریخته گری دیسک روآ",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 210,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/23",
+      "defect": "شات نامناسب",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "افزایش مصرف WNMA و TNMA22 دیسک تیبا به علت شات نامناسب روز شمار 230 و 231",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 211,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/23",
+      "defect": "شات نامناسب",
+      "group": "دیسک سالید",
+      "part": "دیسک سالید پراید ماشینکاری شده",
+      "description": "افزایش مصرف WNMA و TNMA22  دیسک پراید به علت شات نامناسب روز شمار 224",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 212,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/23",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۴/۸ ضایعات مک ریخته‌گری دیسک تیبا در تاریخ ۲۰ آبان",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 213,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/23",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۸/۷ ضایعات مک ریخته گری دیسک تیبا در تاریخ ۲۱ ابان",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 214,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/24",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۵/۲ درصد ضایعات مک ریخته گری دیسک تیبا در تاریخ ۲۳ شهریور",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 215,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/25",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۷ درصد ضایعات مک ریخته گری دیسک تیبا",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 216,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/26",
+      "defect": "لنگی مواد خام",
+      "group": "کاسه چرخ",
+      "part": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
+      "description": "افزایش مصرف اینسرت TNMA 22 به دلیل لنگی مواد خام قطعات کاسه پراید طرح قدیم روزشمار ۲۳۶",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 217,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/26",
+      "defect": "لنگی مواد خام",
+      "group": "کاسه چرخ",
+      "part": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
+      "description": "۱۰ درصد ضایعات لنگی مواد خام کاسه پراید طرح قدیم",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 218,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/26",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۸/۵ درصد ضایعات مک ریخته گری قطعات دیسک تیبا",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 219,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/26",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک پژو 206 ماشینکاری شده",
+      "description": "۳/۳ درصد ضایعات مک ریخته گری دیسک هواخنک ۲۰۶",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
@@ -4207,8 +4207,8 @@
     "groups": [
       {
         "name": "دیسک سالید",
-        "count": 29,
-        "effectiveness": 0.034482758620689655
+        "count": 31,
+        "effectiveness": 0.03225806451612903
       },
       {
         "name": "بوش",
@@ -4217,13 +4217,13 @@
       },
       {
         "name": "دیسک هوا خنک",
-        "count": 135,
-        "effectiveness": 0.4148148148148148
+        "count": 144,
+        "effectiveness": 0.3888888888888889
       },
       {
         "name": "کاسه چرخ",
-        "count": 31,
-        "effectiveness": 0.03225806451612903
+        "count": 33,
+        "effectiveness": 0.030303030303030304
       },
       {
         "name": "سرسیلندر",
@@ -4237,8 +4237,8 @@
       },
       {
         "name": "مجموع",
-        "count": 206,
-        "effectiveness": 0.28640776699029125
+        "count": 219,
+        "effectiveness": 0.2694063926940639
       }
     ],
     "defects": [
@@ -4279,7 +4279,7 @@
       },
       {
         "name": "لنگی مواد خام",
-        "count": 4,
+        "count": 6,
         "effectiveness": 0
       },
       {
@@ -4289,18 +4289,18 @@
       },
       {
         "name": "مک",
-        "count": 97,
-        "effectiveness": 0.010309278350515464
+        "count": 104,
+        "effectiveness": 0.009615384615384616
       },
       {
         "name": "شات نامناسب",
-        "count": 26,
-        "effectiveness": 0.5
+        "count": 30,
+        "effectiveness": 0.43333333333333335
       },
       {
         "name": "مجموع",
-        "count": 202,
-        "effectiveness": 0.2097526341200193
+        "count": 215,
+        "effectiveness": 0.20362894681076496
       }
     ],
     "parts": [
@@ -4311,8 +4311,8 @@
       },
       {
         "name": "دیسک هوا خنک پژو 206 ماشینکاری شده",
-        "count": 34,
-        "effectiveness": 0.35294117647058826
+        "count": 35,
+        "effectiveness": 0.34285714285714286
       },
       {
         "name": "دیسک هوا خنک ماندو ماشینکاری شده",
@@ -4321,7 +4321,7 @@
       },
       {
         "name": "دیسک سالید پراید ماشینکاری شده",
-        "count": 17,
+        "count": 19,
         "effectiveness": 0
       },
       {
@@ -4341,8 +4341,8 @@
       },
       {
         "name": "دیسک هوا خنک تیبا ماشینکاری شده",
-        "count": 12,
-        "effectiveness": 0.6666666666666666
+        "count": 19,
+        "effectiveness": 0.42105263157894735
       },
       {
         "name": "دیسک هواخنک برلیانس سری 300 ماشینکاری شده",
@@ -4796,13 +4796,13 @@
       },
       {
         "name": "دیسک هوا خنک روآ ماشینکاری شده",
-        "count": 7,
+        "count": 8,
         "effectiveness": 0
       },
       {
         "name": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
-        "count": 0,
-        "effectiveness": ""
+        "count": 2,
+        "effectiveness": 0
       },
       {
         "name": "دیسک سالید چرخ جلو مزدا کارا ماشینکاری شده",
