@@ -2632,74 +2632,74 @@
     },
     {
       "row": 220,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "لنگی مواد خام",
+      "group": "کاسه چرخ",
+      "part": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
+      "description": "افزایش مصرف ۳۳ درصدی اینسرت TNMA 22 برروی کاسه پراید قدیم روز شمار ۱۹۲ به دلیل لنگی مواد خام",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 221,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "شات نامناسب",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک پژو 405 ماشینکاری شده",
+      "description": "افزایش مصرف اینسرت TNMA 22 به دلیل شات نامناسب قطعات دیسک هواخنک ۴۰۵ روزشمار ۲۳۴a",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 222,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "شات نامناسب",
+      "group": "دیسک سالید",
+      "part": "دیسک سالید پراید ماشینکاری شده",
+      "description": "افزایش مصرف اینسرتهای TNMA 22 و WNMA به دلیل شات نامناسب برروی قطعات دیسک پراید ۲۳۵D",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 223,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "شات نامناسب",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "افزایش مصرف اینسترتهای TNMA 22 و WNMA به دلیل شات نامناسب قطعات دیسک تیبا روزشمار ۱۹۰ و ۲۲۶",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 224,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "مک",
+      "group": "دیسک هوا خنک",
+      "part": "دیسک هوا خنک تیبا ماشینکاری شده",
+      "description": "۸/۱ درصد ضایعات مک ریخته گری دیسک تیبا",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
       "row": 225,
-      "date": "",
-      "defect": "",
-      "group": "",
-      "part": "",
-      "description": "",
-      "company": "",
-      "notify": "",
-      "effectiveness": "",
+      "date": "1405/08/27",
+      "defect": "مک",
+      "group": "کاسه چرخ",
+      "part": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
+      "description": "۴/۶ درصد ضایعات خامی مواد (لنگی مواد خام) ریخته گری کاسه پراید قدیم\nکنترل کیفیت",
+      "company": "پایاذوب کاوه",
+      "notify": "ایمیل\n(خانم عسکرنیا)",
+      "effectiveness": "نامشخص",
       "supplierNotes": ""
     },
     {
@@ -4207,8 +4207,8 @@
     "groups": [
       {
         "name": "دیسک سالید",
-        "count": 31,
-        "effectiveness": 0.03225806451612903
+        "count": 32,
+        "effectiveness": 0.03125
       },
       {
         "name": "بوش",
@@ -4217,13 +4217,13 @@
       },
       {
         "name": "دیسک هوا خنک",
-        "count": 144,
-        "effectiveness": 0.3888888888888889
+        "count": 147,
+        "effectiveness": 0.38095238095238093
       },
       {
         "name": "کاسه چرخ",
-        "count": 33,
-        "effectiveness": 0.030303030303030304
+        "count": 35,
+        "effectiveness": 0.02857142857142857
       },
       {
         "name": "سرسیلندر",
@@ -4237,8 +4237,8 @@
       },
       {
         "name": "مجموع",
-        "count": 219,
-        "effectiveness": 0.2694063926940639
+        "count": 225,
+        "effectiveness": 0.26222222222222225
       }
     ],
     "defects": [
@@ -4279,7 +4279,7 @@
       },
       {
         "name": "لنگی مواد خام",
-        "count": 6,
+        "count": 7,
         "effectiveness": 0
       },
       {
@@ -4289,25 +4289,25 @@
       },
       {
         "name": "مک",
-        "count": 104,
-        "effectiveness": 0.009615384615384616
+        "count": 106,
+        "effectiveness": 0.009433962264150943
       },
       {
         "name": "شات نامناسب",
-        "count": 30,
-        "effectiveness": 0.43333333333333335
+        "count": 33,
+        "effectiveness": 0.3939393939393939
       },
       {
         "name": "مجموع",
-        "count": 215,
-        "effectiveness": 0.20362894681076496
+        "count": 221,
+        "effectiveness": 0.20003118665211292
       }
     ],
     "parts": [
       {
         "name": "دیسک هوا خنک پژو 405 ماشینکاری شده",
-        "count": 49,
-        "effectiveness": 0.4489795918367347
+        "count": 50,
+        "effectiveness": 0.44
       },
       {
         "name": "دیسک هوا خنک پژو 206 ماشینکاری شده",
@@ -4321,7 +4321,7 @@
       },
       {
         "name": "دیسک سالید پراید ماشینکاری شده",
-        "count": 19,
+        "count": 20,
         "effectiveness": 0
       },
       {
@@ -4341,8 +4341,8 @@
       },
       {
         "name": "دیسک هوا خنک تیبا ماشینکاری شده",
-        "count": 19,
-        "effectiveness": 0.42105263157894735
+        "count": 21,
+        "effectiveness": 0.38095238095238093
       },
       {
         "name": "دیسک هواخنک برلیانس سری 300 ماشینکاری شده",
@@ -4801,7 +4801,7 @@
       },
       {
         "name": "کاسه چرخ پراید طرح قدیم ماشینکاری شده",
-        "count": 2,
+        "count": 4,
         "effectiveness": 0
       },
       {
